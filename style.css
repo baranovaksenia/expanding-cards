@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex; /*make all 5 items in row */
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5; /*with active class will have bigger number */
+  margin: 10px;
+  position: relative; /*h3 on top */
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0; /*show when add class active */
+}
+
+.panel.active {
+  flex: 5; /*make img bigger */
+}
+
+.panel.active h3 {
+  opacity: 1; /*show the text*/
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+/*style works if screen under 480px*/
+@media (max-width: 480px) {
+  .container {
+    width: 100vh;
+  }
+  /*hide the last 2 panels */
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
